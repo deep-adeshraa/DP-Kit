@@ -30,6 +30,7 @@ weight[] = {4,5,6}
 Output: 0
 """
 
+
 def knapsack_recurse(C, wt, val, n, memo={}):
     '''
     Code with memoization(Bottom up approach).
