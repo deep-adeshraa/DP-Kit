@@ -37,8 +37,44 @@ class Solution(object):
 
         return add_in_p1 or add_in_p2
 
+    def dp(self, nums):
+        Sum = sum(nums)
+        max_elem = max(nums)
+
+        if Sum % 2 == 1:
+            return False
+
+        if max_elem > Sum // 2:
+            return False
+        
+        target = Sum // 2 
+        # Now this has became subset sum problem (how ?)
+
+        matrix = [[False for i in range(target+1)] for i in range(len(nums))]
+
+        for i in range(len(nums)):
+            for j in range(target+1):
+                # here j is curr_sum
+                if i == 0:
+                    matrix[i][j] = False
+                elif j == 0:
+                    matrix[i][j] = True
+                elif j < nums[i]:
+                    matrix[i][j] = matrix[i-1][j]
+                else:
+                    matrix[i][j] = matrix[i-1][j] or matrix[i-1][j-nums[i]]
+        
+        return matrix[-1][-1]
+
     def canPartition(self, nums):
         p1, p2 = 0, 0
         ans = self.recurse(p1, p2, nums, 0)
 
         return ans
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    ans = solution.canPartition([1, 5])  # [4 3 2 - 1 4 4]
+
+    print(ans)
