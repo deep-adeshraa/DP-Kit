@@ -1,8 +1,10 @@
 # DP-Kit
 
-The problems I solve for learning Dynamic Programming
+The problems I solve to learn Dynamic Programming
 
-Problems so far
+---
+### Set -1 
 
 - 0-1 Knapsack
 - Partition Equal Subset Sum
+- Subsetsum problem
