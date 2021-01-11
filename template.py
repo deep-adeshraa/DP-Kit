@@ -2,6 +2,7 @@
 Problem statement
 """
 
+
 class Solution:
 
     def recurse(self, args):
@@ -15,4 +16,4 @@ class Solution:
 
 
 if __name__ == "__main__":
-    pass    
+    pass

@@ -15,19 +15,21 @@ Output: 4
 
 """
 
+
 class Solution:
 
     def recurse(self, nums, sum, n, curr_sum, curr_ptr):
-        
+
         # Base cases
         if sum == curr_sum:
             return n+1
-        
+
         if curr_ptr > len(nums)-1:
             return n
 
         # 2 choices
-        include = self.recurse(nums, sum, n, curr_sum+nums[curr_ptr], curr_ptr+1)
+        include = self.recurse(nums, sum, n, curr_sum +
+                               nums[curr_ptr], curr_ptr+1)
         not_include = self.recurse(nums, sum, n, curr_sum, curr_ptr+1)
 
         return include + not_include
@@ -40,7 +42,7 @@ class Solution:
         # Base cases
         for i in range(len(nums)):
             matrix[i][0] = 1
-        
+
         for i in range(1, sum+1):
             matrix[0][i] = 0
             if nums[0] == i:
@@ -52,24 +54,24 @@ class Solution:
 
                 if curr_sum < nums[i]:
                     matrix[i][curr_sum] = matrix[i-1][curr_sum]
-                
+
                 else:
                     matrix[i][curr_sum] = matrix[i-1][curr_sum] + \
-                                          matrix[i-1][curr_sum-nums[i]]
+                        matrix[i-1][curr_sum-nums[i]]
 
         return matrix[-1][-1]
 
 
 if __name__ == "__main__":
-        sol = Solution()
+    sol = Solution()
 
-        nums = [1, 5, 3, 2,4,1,1,1]
-        sum = 5
+    nums = [1, 5, 3, 2, 4, 1, 1, 1]
+    sum = 5
 
-        re_count = sol.recurse(nums, sum, 0, 0, 0)
-        print(re_count)
+    re_count = sol.recurse(nums, sum, 0, 0, 0)
+    print(re_count)
 
-        dp_count = sol.dp(nums, sum)
-        print(dp_count)
+    dp_count = sol.dp(nums, sum)
+    print(dp_count)
 
-        print("-----------", re_count == dp_count, "-----------")
+    print("-----------", re_count == dp_count, "-----------")

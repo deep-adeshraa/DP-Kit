@@ -46,8 +46,8 @@ class Solution(object):
 
         if max_elem > Sum // 2:
             return False
-        
-        target = Sum // 2 
+
+        target = Sum // 2
         # Now this has became subset sum problem (how ?)
 
         matrix = [[False for i in range(target+1)] for i in range(len(nums))]
@@ -63,7 +63,7 @@ class Solution(object):
                     matrix[i][j] = matrix[i-1][j]
                 else:
                     matrix[i][j] = matrix[i-1][j] or matrix[i-1][j-nums[i]]
-        
+
         return matrix[-1][-1]
 
     def canPartition(self, nums):
