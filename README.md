@@ -1,9 +1,9 @@
 # DP-Kit
 
-The problems I solve to learn Dynamic Programming
+The problems I solved to learn Dynamic Programming
 
 ---
-### Set-1 (based on knapsack)
+### Set-1 (Based on knapsack)
 
 - 0-1 Knapsack
 - Partition Equal Subset Sum
@@ -12,7 +12,7 @@ The problems I solve to learn Dynamic Programming
 - minimum difference subset sum
 - Target sum problem (not coded)
 
-### Set-2 (based on unbounded knapsack)
+### Set-2 (Based on unbounded knapsack)
 
 - Unbounded knapsack (knapsack with repitation)
 - Rod cutting problem
