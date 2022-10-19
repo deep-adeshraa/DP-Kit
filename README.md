@@ -5,17 +5,17 @@ The problems I solve to learn Dynamic Programming
 ---
 ### Set-1 (based on knapsack)
 
-- 0-1 Knapsack
-- Partition Equal Subset Sum
-- Subsetsum problem
-- Count number of subsets with sum equal to X
-- minimum difference subset sum
-- Target sum problem (not coded)
+1. 0-1 Knapsack
+2. Partition Equal Subset Sum
+3. Subsetsum problem
+4. Count number of subsets with sum equal to X
+5. minimum difference subset sum
+6. Target sum problem (not coded)
 
 ### Set-2 (based on unbounded knapsack)
 
-- Unbounded knapsack (knapsack with repitation)
-- Rod cutting problem
-- Coin change-1
-- Coin change-2
-- Maximum ribbon cut
+7. Unbounded knapsack (knapsack with repitation)
+8. Rod cutting problem
+9. Coin change-1
+10. Coin change-2
+11. Maximum ribbon cut

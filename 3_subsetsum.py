@@ -1,13 +1,13 @@
 """
 Subset Sum Problem
 
-Given a set of non-negative integers, and a value sum, determine if there is a 
-subset of the given set with sum equal to given sum. 
+Given a set of non-negative integers, and a value sum, determine if there is a
+subset of the given set with sum equal to given sum.
 
-Example: 
+Example:
 
 Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
-Output: True  
+Output: True
 There is a subset (4, 5) with sum 9.
 
 Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 30
@@ -43,8 +43,7 @@ class Solution:
         for num in range(1, len(nums)):
             for curr_sum in range(1, sum+1):
                 if curr_sum < nums[num]:
-                    matrix[num][curr_sum] = matrix[num -
-                                                   1][curr_sum]  # not include
+                    matrix[num][curr_sum] = matrix[num - 1][curr_sum]  # not include
 
                 elif curr_sum >= nums[num]:
                     matrix[num][curr_sum] = (matrix[num-1][curr_sum-nums[num]] or  # Include case
