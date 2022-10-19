@@ -1,12 +1,12 @@
 """
 Unbounded Knapsack (Repetition of items allowed)
 
-Given a knapsack weight W and a set of n items with certain value vali and
-weight wti, we need to calculate the maximum amount that could make up this
+Given a knapsack weight W and a set of n items with certain value vali and 
+weight wti, we need to calculate the maximum amount that could make up this 
 quantity exactly. This is different from classical Knapsack problem, here we
 are allowed to use unlimited number of instances of an item.
 
-Examples:
+Examples: 
 Input : W = 100
         val[]  = {1, 30}
         wt[] = {1, 50}
@@ -21,8 +21,8 @@ We get maximum value with option 2.
 
 Input : W = 8
        val[] = {10, 40, 50, 70}
-       wt[]  = {1, 3, 4, 5}
-Output : 110
+       wt[]  = {1, 3, 4, 5}       
+Output : 110 
 We get maximum value with one unit of
 weight 5 and one unit of weight 3.
 """
@@ -33,12 +33,11 @@ class Solution:
     def recurse(self, capacity, val, weight, n):
         if capacity == 0 or n == len(val):
             return 0
-
+        
         if weight[n] <= capacity:
             include = val[n] + self.recurse(capacity-weight[n], val, weight, n)
             exclude = self.recurse(capacity, val, weight, n+1)
             val = max(include, exclude)
-
         elif weight[n] > capacity:
             val = self.recurse(capacity, val, weight, n+1)
 
@@ -57,9 +56,9 @@ class Solution:
             for j in range(capacity+1):
                 if weight[i] <= j:
                     dp[j] = max(dp[j], value[i] + dp[j-weight[i]])
-
+    
         return dp[capacity]
-
+    
     def dp_2(self, capacity, weight, value):
         "DP in knapsack style"
 
@@ -75,8 +74,8 @@ class Solution:
                                   K[i-1][w])
                 else:
                     K[i][w] = K[i-1][w]
-
-
+        
+    
         return K[-1][-1]
 
 if __name__ == "__main__":

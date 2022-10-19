@@ -1,14 +1,14 @@
 """
 0-1 Knapsack problem
 
-You are given weights and values of N items, put these items in a knapsack of
-capacity W to get the maximum total value in the knapsack. Note that we have
+You are given weights and values of N items, put these items in a knapsack of 
+capacity W to get the maximum total value in the knapsack. Note that we have 
 only one quantity of each item.
-In other words, given two integer arrays val[0..N-1] and wt[0..N-1] which
-represent values and weights associated with N items respectively. Also given
-an integer W which represents knapsack capacity, find out the maximum value
-subset of val[] such that sum of the weights of this subset is smaller than or
-equal to W. You cannot break an item, either pick the complete item, or don't
+In other words, given two integer arrays val[0..N-1] and wt[0..N-1] which 
+represent values and weights associated with N items respectively. Also given 
+an integer W which represents knapsack capacity, find out the maximum value 
+subset of val[] such that sum of the weights of this subset is smaller than or 
+equal to W. You cannot break an item, either pick the complete item, or don’t 
 pick it (0-1 property).
 
 Example 1:
@@ -35,7 +35,7 @@ def knapsack_recurse(C, wt, val, n, memo={}):
     '''
     Code with memoization(Bottom up approach).
 
-    :param C: capacity of knapsack
+    :param C: capacity of knapsack 
     :param wt: list containing weights
     :param val: list containing corresponding values
     :param n: size of lists
@@ -61,16 +61,6 @@ def knapsack_recurse(C, wt, val, n, memo={}):
 
 
 def knapsack_dp(C, wt, val, n):
-    """
-    Tabulation approach (top-down)
-
-    :param C: capacity of knapsack
-    :param wt: list containing weights
-    :param val: list containing corresponding values
-    :param n: size of lists
-    :return: Integer
-    """
-
     K = [[0 for x in range(C + 1)] for x in range(n + 1)]
 
     # Build table K[][] in bottom up manner
@@ -79,12 +69,8 @@ def knapsack_dp(C, wt, val, n):
             if i == 0 or w == 0:
                 K[i][w] = 0
             elif wt[i-1] <= w:
-                K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]],
-                              K[i-1][w])
+                K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]], K[i-1][w])
             else:
                 K[i][w] = K[i-1][w]
 
     return K[n][C]
-
-ans = knapsack_dp(3, [1,2,3],[3,2,1],3)
-print(ans)
